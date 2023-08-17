@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Generate random number</title>
+</head>
+
+<body>
+    <h3 id="demo">Click to generate a random number</h3>
+    <form action="/action_page.php">
+        <label for="randNum">Random number:</label>
+        <input type="number" id="randNum" name="randNum"><br/><br/>
+    </form>
+    <button onclick="generateRandNum()">Generate</button>
+
+    <script>
+        const MIN_NUM = Number.MIN_SAFE_INTEGER
+        const MAX_NUM = Number.MAX_SAFE_INTEGER
+
+        function generateRandNum() {
+            document.getElementById("randNum").value = getRndInteger(MIN_NUM, MAX_NUM)
+        }
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+
+</body>
+
+</html>
