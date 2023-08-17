@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Predict a sum of two numbers</title>
+</head>
+
+<body>
+    <h3 id="demo">Predict a sum of two numbers</h3>
+
+    <form action="/action_page.php">
+        <label for="num1">Random number 1:</label>
+        <input type="number" id="num1" name="num1"><br /><br />
+        <label for="num2">Random number 2:</label>
+        <input type="number" id="num2" name="num2"><br /><br />
+    </form>
+    <button onclick="generateRandNum()">Generate</button>
+
+    <form action="/action_page.php">
+        <label for="userNum">Random number 1:</label>
+        <input type="number" id="userNum" name="userNum"><br /><br />
+    </form>
+    <button onclick="myFunc()">Check prediction</button>
+
+    <script>
+        const MIN_NUM = 0
+        const MAX_NUM = 10
+
+        function generateRandNum() {
+            document.getElementById("num1").value = getRndInteger(MIN_NUM, MAX_NUM)
+            document.getElementById("num2").value = getRndInteger(MIN_NUM, MAX_NUM)
+        }
+
+        function myFunc(params) {
+            var userNum = document.getElementById("userNum").value
+            var sum = parseInt(document.getElementById("num1").value) + 
+            parseInt(document.getElementById("num2").value)
+            
+            if (userNum == sum) {
+                alert("Great success!")
+            }
+            else {
+                alert("Wrong answer!")
+            }
+        }
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+
+</body>
+
+</html>
