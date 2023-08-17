@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login page</title>
+</head>
+
+<body>
+    <h3 id="demo">Enter number of rows and columns to make a table.</h3>
+    <form action="/action_page.php">
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname"><br /><br />
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd" minlength="8"><br /><br />
+        <label for="sites">Choose a car:</label>
+        <select id="sites" name="sites">
+            <option value="fb">Facebook</option>
+            <option value="google">Google</option>
+            <option value="github">Github</option>
+        </select><br /><br />
+    </form>
+    <button onclick="verifyCreds()">Login</button>
+
+    <script>
+        const username = "testuser"
+        const password = "qwer4321"
+
+        function verifyCreds() {
+            var isUname = (username == document.getElementById("uname").value)
+            var isPwd = (password == document.getElementById("pwd").value)
+            var website = document.getElementById("sites").value
+
+            if (isUname && isPwd) {
+                var newLoc = ""
+                alert("Login successful!");
+
+                switch (website) {
+                    case "fb":
+                        newLoc = "https://www.facebook.com/"
+                        break;
+                    case "google":
+                        newLoc = "https://www.google.com/"
+                        break;
+                    case "github":
+                        newLoc = "https://www.github.com/"
+                        break;
+                    default:
+                        alert("bug");
+                        break;
+                }
+
+                location.replace(newLoc)
+            }
+            else {
+                alert("Incorrect username or password!");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
